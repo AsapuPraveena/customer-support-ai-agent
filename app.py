@@ -24,3 +24,17 @@ def customer_support_ai(message):
     intent = predict_intent(message)
     reply = generate_reply(intent)
     return intent, reply
+    import streamlit as st
+
+st.title("🤖 Customer Support AI")
+
+message = st.text_input("Enter your customer issue:")
+
+if st.button("Predict"):
+    if message:
+        intent, reply = customer_support_ai(message)
+        st.success(f"Intent: {intent}")
+        st.write("### Response:")
+        st.write(reply)
+    else:
+        st.warning("Please enter a message.")
