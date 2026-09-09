@@ -1,5 +1,5 @@
-
 import joblib
+import streamlit as st
 
 model = joblib.load("customer_support_model.pkl")
 vectorizer = joblib.load("tfidf_vectorizer.pkl")
@@ -24,7 +24,6 @@ def customer_support_ai(message):
     intent = predict_intent(message)
     reply = generate_reply(intent)
     return intent, reply
-    import streamlit as st
 
 st.title("🤖 Customer Support AI")
 
